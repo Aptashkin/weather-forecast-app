@@ -26,4 +26,3 @@ export class WeatherForecastApiService {
 
 const getCityInfo = (array: CityInfo[]) => array.map(e => ({ name: e.name, lat: e.lat, lon: e.lon }));
 const getWeatherInfo = (array: any[]) => array.map(e => ({ dt: e.dt, temp: e.temp }));
-//const filterWithStep = (item: WeatherInfo, index: number) => index % 3 == 0;
