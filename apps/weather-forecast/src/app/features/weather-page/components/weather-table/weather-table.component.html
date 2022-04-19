@@ -1,0 +1,14 @@
+<table *ngIf="forecast" class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">City</th>
+			<th *ngFor="let colName of columns" scope="col">{{ colName }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">{{ cityName }}</th>
+			<td *ngFor="let temp of values">{{ temp }}°</td>
+		</tr>
+	</tbody>
+</table>

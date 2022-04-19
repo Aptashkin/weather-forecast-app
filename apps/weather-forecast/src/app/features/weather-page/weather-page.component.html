@@ -1,0 +1,24 @@
+<weather-header
+	[searchText]="weatherService.searchTextFromRoute$ | async"
+	[mode]="weatherService.modeFromRoute$ | async"
+></weather-header>
+<div class="mt-3 mb-3">
+	<ng-container *ngIf="weatherService.city$ | async; else noSearchResult">
+		<ng-container [ngSwitch]="weatherService.mode$ | async">
+			<ng-template [ngSwitchCase]="weatherModeEnum.Hourly">
+				<weather-table [forecast]="weatherService.hourlyForecast$! | async"></weather-table>
+			</ng-template>
+			<ng-template [ngSwitchCase]="weatherModeEnum.Daily">
+				<weather-table [forecast]="weatherService.dailyForecast$! | async"></weather-table>
+			</ng-template>
+		</ng-container>
+	</ng-container>
+</div>
+
+<ng-template #noSearchResult>
+	<ng-container *ngIf="weatherService.hasSearchText$ | async">
+		<p class="pt-3 pb-3">
+			Sorry, but <strong>{{ weatherService.searchText$ | async }}</strong> was not be found
+		</p>
+	</ng-container>
+</ng-template>

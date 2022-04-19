@@ -1,0 +1,14 @@
+<form class="d-flex" [formGroup]="form">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="btn-group" role="group" aria-label="Radio Buttons with Bootstrap 5">
+                <input type="radio" formControlName="mode" [value]="weatherModeEnum.Hourly" class="btn-check" id="btnradio1" autocomplete="off" />
+                <label class="btn btn-outline-primary" for="btnradio1">Hourly</label>
+
+                <input type="radio" formControlName="mode" [value]="weatherModeEnum.Daily" class="btn-check" id="btnradio2" autocomplete="off" />
+                <label class="btn btn-outline-primary" for="btnradio2">Daily</label>
+            </div>
+        </div>
+        <input id="typeahead-basic" type="text" class="form-control" formControlName="searchText" />
+    </div>
+</form>
